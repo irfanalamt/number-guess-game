@@ -9,6 +9,6 @@ https://irfanalamt.github.io/number-guess-game/
 - Guess the number in the square
 - Get instant feedback about your guess
 - Guess the number with the least tries
-- Be happy for absolutely no reason. 🥇🎉
+- Be happy for absolutely no reason 🥇🎉
 
-Tech stack : HTML, CSS, JavaScript
+Tech stack : HTML, CSS, JavaScript, Bootstrap

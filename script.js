@@ -15,8 +15,16 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess === secretNumber) {
     displayMessage('🎉 Correct Number!');
     document.querySelector('.number').textContent = secretNumber;
-    document.querySelector('body').style.backgroundColor = '#60b347';
-    document.querySelector('.number').style.width = '30rem';
+    document.querySelector('body').style.backgroundColor = '#8bc34a';
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach((button) => {
+      button.style.backgroundColor = '#ff6e40';
+    });
+
+    const toastLiveExample = document.getElementById('liveToast');
+    const toast = new bootstrap.Toast(toastLiveExample);
+    toast.show();
+
     if (score > highscore) {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
