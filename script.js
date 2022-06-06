@@ -10,9 +10,12 @@ const displayMessage = function (message) {
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
+  // No input
   if (!guess) {
     displayMessage('⛔️ No number!');
-  } else if (guess === secretNumber) {
+  }
+  // Success condition
+  else if (guess === secretNumber) {
     displayMessage('🎉 Correct Number!');
     document.querySelector('.number').textContent = secretNumber;
     document.querySelector('body').style.backgroundColor = '#8bc34a';
@@ -20,7 +23,7 @@ document.querySelector('.check').addEventListener('click', function () {
     buttons.forEach((button) => {
       button.style.backgroundColor = '#ff6e40';
     });
-
+    // Success toast
     const toastLiveExample = document.getElementById('liveToast');
     const toast = new bootstrap.Toast(toastLiveExample);
     toast.show();
@@ -29,7 +32,9 @@ document.querySelector('.check').addEventListener('click', function () {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
     }
-  } else if (guess !== secretNumber) {
+  }
+  // Wrong guess
+  else if (guess !== secretNumber) {
     if (score > 1) {
       displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
       score--;
@@ -41,15 +46,13 @@ document.querySelector('.check').addEventListener('click', function () {
   }
 });
 
+// Again button function
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
-
   displayMessage('Start guessing...');
   document.querySelector('.score').textContent = score;
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
-
   document.querySelector('body').style.backgroundColor = '#f5f0e1';
-  document.querySelector('.number').style.width = '15rem';
 });
